@@ -726,6 +726,7 @@ module.exports = grammar({
       $.conditional_expression,
       $.named_expression,
       $.as_pattern,
+      $.jsx,
     ),
 
     primary_expression: $ => choice(
@@ -1193,6 +1194,78 @@ module.exports = grammar({
 
     positional_separator: _ => '/',
     keyword_separator: _ => '*',
+
+    jsx_opening_element: $ => seq(
+      '<',
+      $.identifier,
+      repeat(choice($.jsx_attribute, $.jsx_spread_attribute)),
+      '>',
+    ),
+  
+    jsx_closing_element: $ => seq(
+      '</',
+      $.identifier,
+      '>',
+    ),
+
+    jsx_self_closing_element: $ => seq(
+      '<',
+      $.identifier,
+      repeat(choice($.jsx_attribute, $.jsx_spread_attribute)),
+      '/>',
+    ),
+
+    jsx_child: $ => choice(
+      $.jsx_text,
+      $.jsx_code,
+      $.jsx_element,
+      $.jsx_fragment,
+    ),
+  
+    jsx_element: $ => prec(1, choice(
+      seq(
+        $.jsx_opening_element,
+        repeat($.jsx_child),
+        $.jsx_closing_element,
+      ),
+      $.jsx_self_closing_element,
+    )),
+
+    jsx_fragment: $ => seq(
+      '<>',
+      repeat($.jsx_child),
+      '</>'
+    ),
+
+    jsx: $ => choice(
+      $.jsx_fragment,
+      $.jsx_element,
+    ),
+
+    jsx_text: $ => /[^<{]+/,
+
+    jsx_code: $ => seq(
+      '{',
+      $._f_expression,
+      '}'
+    ),
+
+    jsx_spread_attribute: $ => seq(
+      '{',
+      $.dictionary_splat,
+      '}'
+    ),
+
+    jsx_attribute: $ => seq(
+      $.identifier,
+      optional(seq(
+        '=',
+        choice(
+          $.string,
+          $.interpolation,
+        ),
+      )),
+    ),
   },
 });
 
