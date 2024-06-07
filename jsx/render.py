@@ -19,7 +19,7 @@ def render(element: Element) -> str:
     # TODO: the compiler should to search for identifier
     type_ = inspect.currentframe().f_back.f_globals.get(element.type)
 
-    if "A" <= element.type[0] <= "Z":
+    if not isinstance(type_, _Fragment) and "A" <= element.type[0] <= "Z":
         return render(type_(**element.props))
 
     children = element.props.pop("children", None)

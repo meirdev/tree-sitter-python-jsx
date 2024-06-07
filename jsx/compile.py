@@ -187,5 +187,5 @@ def main():
             code = compile(ifp.read())
 
             with open(file.with_suffix(".py"), "w+b") as ofp:
-                ofp.write(b"from jsx import Element\n")
+                ofp.write(b"from jsx import Element, Fragment\n")
                 ofp.write(code)
