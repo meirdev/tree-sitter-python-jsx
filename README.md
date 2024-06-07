@@ -12,6 +12,12 @@ app = FastAPI()
 @app.get("/", response_class=HTMLResponse)
 async def index():
     return render(
-        <h1>Hello World</h1>
+        <>
+            <h1>Hello World</h1>
+            <div>
+                <button>Enter</button>
+            </div>
+        </>
     )
+
 ```
