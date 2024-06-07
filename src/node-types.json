@@ -132,6 +132,10 @@
         "named": true
       },
       {
+        "type": "jsx",
+        "named": true
+      },
+      {
         "type": "lambda",
         "named": true
       },
@@ -2088,6 +2092,220 @@
     }
   },
   {
+    "type": "jsx",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "jsx_element",
+          "named": true
+        },
+        {
+          "type": "jsx_fragment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_attribute",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interpolation",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_child",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "jsx_code",
+          "named": true
+        },
+        {
+          "type": "jsx_element",
+          "named": true
+        },
+        {
+          "type": "jsx_fragment",
+          "named": true
+        },
+        {
+          "type": "jsx_text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_closing_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_code",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "pattern_list",
+          "named": true
+        },
+        {
+          "type": "yield",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "jsx_child",
+          "named": true
+        },
+        {
+          "type": "jsx_closing_element",
+          "named": true
+        },
+        {
+          "type": "jsx_opening_element",
+          "named": true
+        },
+        {
+          "type": "jsx_self_closing_element",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_fragment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "jsx_child",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_opening_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "jsx_attribute",
+          "named": true
+        },
+        {
+          "type": "jsx_spread_attribute",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_self_closing_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "jsx_attribute",
+          "named": true
+        },
+        {
+          "type": "jsx_spread_attribute",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "jsx_spread_attribute",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dictionary_splat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "keyword_argument",
     "named": true,
     "fields": {
@@ -3410,6 +3628,10 @@
     "named": false
   },
   {
+    "type": "/>",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -3423,6 +3645,14 @@
   },
   {
     "type": "<",
+    "named": false
+  },
+  {
+    "type": "</",
+    "named": false
+  },
+  {
+    "type": "</>",
     "named": false
   },
   {
@@ -3628,6 +3858,10 @@
   {
     "type": "is not",
     "named": false
+  },
+  {
+    "type": "jsx_text",
+    "named": true
   },
   {
     "type": "lambda",
