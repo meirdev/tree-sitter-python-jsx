@@ -15,6 +15,6 @@ def App():
 
     return (
         <div>
-            <h1 style="align: center">Good {text}!</h1>
+            <h1 style="text-align: center">Good {text}!</h1>
         </div>
     )
